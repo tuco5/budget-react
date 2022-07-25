@@ -1,28 +1,22 @@
-import React from 'react';
-
-import { Form } from 'semantic-ui-react';
+import React, { Fragment } from 'react';
 
 import ButtonSaveOrCancel from './ButtonSaveOrCancel';
+import EntryForm from './EntryForm';
 
-export default function NewEntryForm() {
+export default function NewEntryForm({
+  addEntry,
+  entry,
+  setEntry,
+  resetEntry,
+}) {
   return (
-    <Form unstackable>
-      <Form.Group>
-        <Form.Input
-          icon="tags"
-          width={12}
-          label="Description"
-          placeholder="New shinny thing"
-        />
-        <Form.Input
-          width={4}
-          label="value"
-          placeholder="100.00"
-          icon="dollar"
-          iconPosition="left"
-        ></Form.Input>
-      </Form.Group>
-      <ButtonSaveOrCancel />
-    </Form>
+    <Fragment>
+      <EntryForm setEntry={setEntry} entry={entry} />
+      <ButtonSaveOrCancel
+        addEntry={addEntry}
+        entry={entry}
+        resetEntry={resetEntry}
+      />
+    </Fragment>
   );
 }
